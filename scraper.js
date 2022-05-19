@@ -3,7 +3,8 @@ const cheerio = require("cheerio");
 
 const fetchYnetTitles = async () => {
     try {
-        const response = await axios.get('https://www.ynet.co.il/home/0,7340,L-8,00.html');
+        const url = 'https://www.ynet.co.il/home/0,7340,L-8,00.html';
+        const response = await axios.get(url);
         const htmlDoc = response.data;
         const $ = cheerio.load(htmlDoc);
         let titles = [];
@@ -12,7 +13,6 @@ const fetchYnetTitles = async () => {
             titles = [...titles, title];
         });
 
-        // console.log(titles);
         return titles;
     } catch (e) {
         console.error(e);

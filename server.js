@@ -10,11 +10,7 @@ app.get('/scraper', async (req, res) => {
     console.log(returnedTitles);
     res.send(returnedTitles);
 })
-app.get('/hish', async (req, res) => {
-    const returnedTitles = await hish();
-    console.log(returnedTitles);
-    res.send(returnedTitles);
-})
+
 
 
 app.listen(PORT, () => {
